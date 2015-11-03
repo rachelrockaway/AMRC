@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.AppCompat.NoActionBar.Light.NoActionBar" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorForeground">@color/bright_foreground_material_light</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:textColorPrimary">@color/primary_text_material_light</item>
+        <item name="android:textColorSecondary">@color/secondary_text_material_light</item>
+        <item name="android:textColorSecondaryInverse">@color/secondary_text_material_dark</item>
+        <item name="android:windowBackground">@color/windowBackground</item>
+    </style>
+</resources>
