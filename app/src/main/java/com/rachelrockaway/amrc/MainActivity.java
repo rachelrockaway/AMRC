@@ -1,37 +1,49 @@
 package com.rachelrockaway.amrc;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.TextView;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SeekBar sb = (SeekBar)findViewById(R.id.seekBar);
+        SeekBar sb2 = (SeekBar)findViewById(R.id.seekBar2);
+        SeekBar sb3 = (SeekBar)findViewById(R.id.seekBar3);
+        sb.setMax(120);
+        sb.setProgress(30);
+        sb.setOnSeekBarChangeListener(this);
+        sb2.setMax(107)
+        sb2.setProgress(72);
+        sb2.setOnSeekBarChangeListener(this);
+        sb3.setMax(300);
+        sb3.setProgress(120);
+        sb3.setOnSeekBarChangeListener(this);
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    public void onProgressChanged(SeekBar v, int progress, boolean isUser) {
+        TextView tv = (TextView)findViewById(R.id.textViewAge);
+        tv.setText("Age: " + Integer.toString(progress) + " years");
+        TextView tv2 = (TextView)findViewById(R.id.textViewHeight);
+        tv2.setText("Height: " + Integer.toString(progress) + " inches");
+        TextView tv3 = (TextView)findViewById(R.id.textViewWeight);
+        tv3.setText("Weight: " + Integer.toString(progress) + " pounds");
     }
-
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    public void onStartTrackingTouch(SeekBar seekBar) {
+// TODO Auto-generated method stub
     }
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+// TODO Auto-generated method stub
+    }
+
 }
+
