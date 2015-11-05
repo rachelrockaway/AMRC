@@ -13,13 +13,13 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SeekBar sb = (SeekBar)findViewById(R.id.seekBar);
+        SeekBar sb1 = (SeekBar)findViewById(R.id.seekBar1);
         SeekBar sb2 = (SeekBar)findViewById(R.id.seekBar2);
         SeekBar sb3 = (SeekBar)findViewById(R.id.seekBar3);
-        sb.setMax(120);
-        sb.setProgress(30);
-        sb.setOnSeekBarChangeListener(this);
-        sb2.setMax(107)
+        sb1.setMax(120);
+        sb1.setProgress(30);
+        sb1.setOnSeekBarChangeListener(this);
+        sb2.setMax(107);
         sb2.setProgress(72);
         sb2.setOnSeekBarChangeListener(this);
         sb3.setMax(300);
@@ -29,19 +29,26 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
 
     @Override
     public void onProgressChanged(SeekBar v, int progress, boolean isUser) {
-        TextView tv = (TextView)findViewById(R.id.textViewAge);
-        tv.setText("Age: " + Integer.toString(progress) + " years");
-        TextView tv2 = (TextView)findViewById(R.id.textViewHeight);
-        tv2.setText("Height: " + Integer.toString(progress) + " inches");
-        TextView tv3 = (TextView)findViewById(R.id.textViewWeight);
-        tv3.setText("Weight: " + Integer.toString(progress) + " pounds");
+        if (v.getId() == R.id.seekBar1) {
+            TextView tv = (TextView) findViewById(R.id.textViewAge);
+            tv.setText("Age: " + Integer.toString(progress) + " years");
+        }
+        if (v.getId() == R.id.seekBar2) {
+            TextView tv2 = (TextView) findViewById(R.id.textViewHeight);
+            tv2.setText("Height: " + Integer.toString(progress) + " inches");
+        }
+        if (v.getId() == R.id.seekBar3) {
+            TextView tv3 = (TextView) findViewById(R.id.textViewWeight);
+            tv3.setText("Weight: " + Integer.toString(progress) + " pounds");
+        }
     }
+
     @Override
-    public void onStartTrackingTouch(SeekBar seekBar) {
+    public void onStartTrackingTouch(SeekBar seekbar2) {
 // TODO Auto-generated method stub
     }
     @Override
-    public void onStopTrackingTouch(SeekBar seekBar) {
+    public void onStopTrackingTouch(SeekBar seekbar2) {
 // TODO Auto-generated method stub
     }
 

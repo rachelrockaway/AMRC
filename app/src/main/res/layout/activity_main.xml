@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textViewAge"
-        android:layout_above="@+id/seekBar"
+        android:layout_above="@+id/seekBar1"
         android:layout_centerHorizontal="true"
         android:textColor="#ffffff"
         android:fontFamily="Helvetica"
@@ -18,7 +18,7 @@
     <SeekBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/seekBar"
+        android:id="@+id/seekBar1"
         android:layout_above="@+id/textViewHeight"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -51,23 +51,22 @@
         android:layout_height="wrap_content"
         android:textColor="#ffffff"
         android:textSize="20dp"
-        android:layout_alignWithParentIfMissing="false"
         android:layout_below="@+id/seekBar2"
         android:layout_centerHorizontal="true" />
     <SeekBar
+        android:id="@+id/seekBar3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/seekBar3"
         android:layout_below="@+id/textViewWeight"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
     <TextView
+        android:id="@+id/textViewExerciseLevel"
         android:text="Exercise Level"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textViewExerciseLevel"
         android:textColor="#ffffff"
         android:textSize="20dp"
         android:layout_below="@+id/seekBar3"
