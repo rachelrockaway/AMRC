@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeListener {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +24,11 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         sb3.setMax(300);
         sb3.setProgress(120);
         sb3.setOnSeekBarChangeListener(this);
+
+        info.hoang8f.android.segmented.SegmentedGroup segmented2 = (info.hoang8f.android.segmented.SegmentedGroup)findViewById(R.id.segmented2);
+        segmented2.setTintColor(android.graphics.Color.parseColor("#FFFFFF"), android.graphics.Color.parseColor("#FF7B07B2"));
+        info.hoang8f.android.segmented.SegmentedGroup segmented3 = (info.hoang8f.android.segmented.SegmentedGroup)findViewById(R.id.segmented3);
+        segmented3.setTintColor(android.graphics.Color.parseColor("#FFFFFF"), android.graphics.Color.parseColor("#FF7B07B2"));
     }
 
     @Override
