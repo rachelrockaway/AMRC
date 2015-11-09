@@ -3,7 +3,6 @@ package com.rachelrockaway.amrc;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.SeekBar;
-import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeListener {
@@ -12,7 +11,6 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         SeekBar sb1 = (SeekBar)findViewById(R.id.seekBar1);
         SeekBar sb2 = (SeekBar)findViewById(R.id.seekBar2);
         SeekBar sb3 = (SeekBar)findViewById(R.id.seekBar3);
@@ -29,6 +27,7 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
 
     @Override
     public void onProgressChanged(SeekBar v, int progress, boolean isUser) {
+
         if (v.getId() == R.id.seekBar1) {
             TextView tv = (TextView) findViewById(R.id.textViewAge);
             tv.setText("Age: " + Integer.toString(progress) + " years");
@@ -44,11 +43,11 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
     }
 
     @Override
-    public void onStartTrackingTouch(SeekBar seekbar2) {
+    public void onStartTrackingTouch(SeekBar seekbar) {
 // TODO Auto-generated method stub
     }
     @Override
-    public void onStopTrackingTouch(SeekBar seekbar2) {
+    public void onStopTrackingTouch(SeekBar seekbar) {
 // TODO Auto-generated method stub
     }
 

@@ -10,4 +10,5 @@
         <item name="android:colorForeground">@color/bright_foreground_material_light</item>
     </style>
 
+
 </resources>
