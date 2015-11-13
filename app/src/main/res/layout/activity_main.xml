@@ -23,13 +23,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Female"
-            style="@style/RadioButton" />
+            style="@style/RadioButton"
+            android:onClick="sendMessage" />
         <RadioButton
             android:id="@+id/button22"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Male"
-            style="@style/RadioButton" />
+            style="@style/RadioButton"
+            android:onClick="sendMessage" />
     </info.hoang8f.android.segmented.SegmentedGroup>
 
     <TextView
@@ -52,7 +54,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:backgroundTint="#ffffff"
-        android:clickable="true" />
+        android:onClick="sendMessage" />
     <TextView
         android:text="Height: 72 inches"
         android:layout_width="wrap_content"
@@ -61,7 +63,7 @@
         android:textColor="#ffffff"
         android:textSize="20dp"
         android:layout_above="@+id/seekBar2"
-        android:layout_alignEnd="@+id/textView" />
+        android:layout_centerHorizontal="true" />
     <SeekBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -70,7 +72,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentStart="true"
+        android:onClick="sendMessage" />
     <TextView
         android:id="@+id/textViewWeight"
         android:text="Weight: 120 pounds"
@@ -88,7 +91,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="sendMessage" />
     <TextView
         android:id="@+id/textViewExerciseLevel"
         android:text="Exercise Level"
@@ -114,33 +118,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sedentary"
-            style="@style/RadioButton" />
+            style="@style/RadioButton"
+            android:onClick="sendMessage" />
         <RadioButton
             android:id="@+id/button25"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Light"
-            style="@style/RadioButton" />
+            style="@style/RadioButton"
+            android:onClick="sendMessage" />
         <RadioButton
             android:id="@+id/button26"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Very"
-            style="@style/RadioButton" />
+            style="@style/RadioButton"
+            android:onClick="sendMessage" />
         <RadioButton
             android:id="@+id/button27"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Extra"
-            style="@style/RadioButton" />
+            style="@style/RadioButton"
+            android:onClick="sendMessage" />
     </info.hoang8f.android.segmented.SegmentedGroup>
     <TextView
         android:text="Active Metabolic Rate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textViewAMRC"
-        android:layout_marginBottom="43dp"
-        android:layout_above="@+id/textView"
+        android:layout_above="@+id/textViewAMRCTotal"
         android:layout_centerHorizontal="true"
         android:textColor="#ffffff"
         android:textSize="20dp" />
@@ -148,11 +155,21 @@
         android:text="calories per day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView"
+        android:id="@+id/textViewCPD"
         android:layout_marginBottom="31dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:textColor="#ffffff"
         android:textIsSelectable="false"
         android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textViewCPD"
+        android:text="L"
+        android:textColor="#ffffff"
+        android:id="@+id/textViewAMRCTotal"
+        android:layout_centerHorizontal="true"
+        android:textSize="24dp" />
 </RelativeLayout>

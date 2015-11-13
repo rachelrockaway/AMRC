@@ -1,6 +1,7 @@
 package com.rachelrockaway.amrc;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -57,5 +58,13 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
 // TODO Auto-generated method stub
     }
 
+    public void sendMessage(android.view.View view) {
+        info.hoang8f.android.segmented.SegmentedGroup segmented2 = (info.hoang8f.android.segmented.SegmentedGroup)findViewById(R.id.segmented2);
+        SeekBar sb1 = (SeekBar)findViewById(R.id.seekBar1);
+        SeekBar sb2 = (SeekBar)findViewById(R.id.seekBar2);
+        SeekBar sb3 = (SeekBar)findViewById(R.id.seekBar3);
+        info.hoang8f.android.segmented.SegmentedGroup segmented3 = (info.hoang8f.android.segmented.SegmentedGroup)findViewById(R.id.segmented3);
+
+    }
 }
 
