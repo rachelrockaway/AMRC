@@ -2,9 +2,15 @@ package com.rachelrockaway.amrc;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import info.hoang8f.android.segmented.SegmentedGroup;
+
 
 public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeListener {
 
@@ -27,10 +33,11 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
     double veryConstant = 1.725;
     double extraConstant = 1.9;
 
+    Double userActiveMetabolicRate = 1000.00;
 
-    public Double calculateActiveMetabolicRate() {
+    public Double calculateBasalMetabolicRate() {
 
-        if ( ( (RadioButton) findViewById(R.id.button22) ).isChecked() ) {
+        if ( ( (RadioButton) findViewById(R.id.button21) ).isChecked() ) {
             weightCalc = maleWeightConstant * (double)(((SeekBar) findViewById(R.id.seekBar3)).getProgress());
             heightCalc = maleHeightConstant * (double)(((SeekBar) findViewById(R.id.seekBar2)).getProgress());
             ageCalc = maleAgeConstant * (double)(((SeekBar) findViewById(R.id.seekBar1)).getProgress());
@@ -45,21 +52,29 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         }
     }
 
-/*    func calculateActiveMetabolicRate() {
+    public Double calculateActiveMetabolicRate() {
 
-
-        switch userActivityLevel
-        {
-            case .sedentary:
-        userActiveMetabolicRate = calculateBasalMetabolicRate() * sedentaryConstant
-            case .light:
-        userActiveMetabolicRate = calculateBasalMetabolicRate() * lightConstant
-            case .very:
-        userActiveMetabolicRate = calculateBasalMetabolicRate() * veryConstant
-            case .extra:
-        userActiveMetabolicRate = calculateBasalMetabolicRate() * extraConstant
+        info.hoang8f.android.segmented.SegmentedGroup segmented3 = (info.hoang8f.android.segmented.SegmentedGroup) findViewById(R.id.segmented3);
+        switch (segmented3.getCheckedRadioButtonId()) {
+            case (R.id.button24):
+                userActiveMetabolicRate = calculateBasalMetabolicRate() * sedentaryConstant;
+                break;
+            case (R.id.button25):
+                userActiveMetabolicRate = calculateBasalMetabolicRate() * lightConstant;
+                break;
+            case (R.id.button26):
+                userActiveMetabolicRate = calculateBasalMetabolicRate() * veryConstant;
+                break;
+            case (R.id.button27):
+                userActiveMetabolicRate = calculateBasalMetabolicRate() * extraConstant;
+                break;
         }
-*/
+        TextView tv = (TextView) findViewById(R.id.textViewAMRCTotal);
+        tv.setText(Integer.toString(userActiveMetabolicRate.intValue()));
+        return userActiveMetabolicRate;
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,27 +115,22 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
             TextView tv3 = (TextView) findViewById(R.id.textViewWeight);
             tv3.setText("Weight " + Integer.toString(progress) + " pounds");
         }
-        TextView tv = (TextView) findViewById(R.id.textViewAMRCTotal);
-        tv.setText(Integer.toString(calculateActiveMetabolicRate().intValue()));
+        calculateActiveMetabolicRate();
     }
 
-    @Override
+
+        @Override
     public void onStartTrackingTouch(SeekBar seekbar) {
 // TODO Auto-generated method stub
     }
+
     @Override
     public void onStopTrackingTouch(SeekBar seekbar) {
 // TODO Auto-generated method stub
     }
 
     public void sendMessage(android.view.View view) {
-        info.hoang8f.android.segmented.SegmentedGroup segmented2 = (info.hoang8f.android.segmented.SegmentedGroup)findViewById(R.id.segmented2);
-        SeekBar sb1 = (SeekBar)findViewById(R.id.seekBar1);
-        SeekBar sb2 = (SeekBar)findViewById(R.id.seekBar2);
-        SeekBar sb3 = (SeekBar)findViewById(R.id.seekBar3);
-        info.hoang8f.android.segmented.SegmentedGroup segmented3 = (info.hoang8f.android.segmented.SegmentedGroup)findViewById(R.id.segmented3);
-
+        calculateActiveMetabolicRate();
     }
-
 }
 
