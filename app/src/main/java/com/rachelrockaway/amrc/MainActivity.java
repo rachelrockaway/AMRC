@@ -1,14 +1,65 @@
 package com.rachelrockaway.amrc;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
+import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeListener {
 
+    double maleWeightConstant = 6.23;
+    double maleHeightConstant = 12.7;
+    double maleAgeConstant = 6.8;
+    double maleCalcConstant = 66;
 
+    double femaleWeightConstant = 4.35;
+    double femaleHeightConstant = 4.7;
+    double femaleAgeConstant = 4.7;
+    double femaleCalcConstant = 655;
+
+    double weightCalc = 100.0;
+    double heightCalc = 100.0;
+    double ageCalc = 50;
+
+    double sedentaryConstant = 1.2;
+    double lightConstant = 1.375;
+    double veryConstant = 1.725;
+    double extraConstant = 1.9;
+
+
+    public Double calculateActiveMetabolicRate() {
+
+        if ( ( (RadioButton) findViewById(R.id.button22) ).isChecked() ) {
+            weightCalc = maleWeightConstant * (double)(((SeekBar) findViewById(R.id.seekBar3)).getProgress());
+            heightCalc = maleHeightConstant * (double)(((SeekBar) findViewById(R.id.seekBar2)).getProgress());
+            ageCalc = maleAgeConstant * (double)(((SeekBar) findViewById(R.id.seekBar1)).getProgress());
+        return (maleCalcConstant + weightCalc + heightCalc - ageCalc);
+     }
+        else {
+            weightCalc = femaleWeightConstant * (double)(((SeekBar) findViewById(R.id.seekBar3)).getProgress());
+            heightCalc = femaleHeightConstant * (double)(((SeekBar) findViewById(R.id.seekBar2)).getProgress());
+            ageCalc = femaleAgeConstant * (double)(((SeekBar) findViewById(R.id.seekBar1)).getProgress());
+       return (femaleCalcConstant + weightCalc + heightCalc - ageCalc);
+      
+        }
+    }
+
+/*    func calculateActiveMetabolicRate() {
+
+
+        switch userActivityLevel
+        {
+            case .sedentary:
+        userActiveMetabolicRate = calculateBasalMetabolicRate() * sedentaryConstant
+            case .light:
+        userActiveMetabolicRate = calculateBasalMetabolicRate() * lightConstant
+            case .very:
+        userActiveMetabolicRate = calculateBasalMetabolicRate() * veryConstant
+            case .extra:
+        userActiveMetabolicRate = calculateBasalMetabolicRate() * extraConstant
+        }
+*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,6 +67,8 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         SeekBar sb1 = (SeekBar)findViewById(R.id.seekBar1);
         SeekBar sb2 = (SeekBar)findViewById(R.id.seekBar2);
         SeekBar sb3 = (SeekBar)findViewById(R.id.seekBar3);
+        TextView tv4 = (TextView) findViewById(R.id.textViewAMRCTotal);
+        tv4.setText("2100.00");
         sb1.setMax(120);
         sb1.setProgress(30);
         sb1.setOnSeekBarChangeListener(this);
@@ -37,16 +90,18 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
 
         if (v.getId() == R.id.seekBar1) {
             TextView tv = (TextView) findViewById(R.id.textViewAge);
-            tv.setText("Age: " + Integer.toString(progress) + " years");
+            tv.setText("Age " + Integer.toString(progress) + " years");
         }
         if (v.getId() == R.id.seekBar2) {
             TextView tv2 = (TextView) findViewById(R.id.textViewHeight);
-            tv2.setText("Height: " + Integer.toString(progress) + " inches");
+            tv2.setText("Height " + Integer.toString(progress) + " inches");
         }
         if (v.getId() == R.id.seekBar3) {
             TextView tv3 = (TextView) findViewById(R.id.textViewWeight);
-            tv3.setText("Weight: " + Integer.toString(progress) + " pounds");
+            tv3.setText("Weight " + Integer.toString(progress) + " pounds");
         }
+        TextView tv = (TextView) findViewById(R.id.textViewAMRCTotal);
+        tv.setText(Integer.toString(calculateActiveMetabolicRate().intValue()));
     }
 
     @Override
@@ -66,5 +121,6 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         info.hoang8f.android.segmented.SegmentedGroup segmented3 = (info.hoang8f.android.segmented.SegmentedGroup)findViewById(R.id.segmented3);
 
     }
+
 }
 
