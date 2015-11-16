@@ -3,7 +3,9 @@ package com.rachelrockaway.amrc;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -51,7 +53,7 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
       
         }
     }
-
+    
     public Double calculateActiveMetabolicRate() {
 
         info.hoang8f.android.segmented.SegmentedGroup segmented3 = (info.hoang8f.android.segmented.SegmentedGroup) findViewById(R.id.segmented3);
@@ -83,7 +85,7 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         SeekBar sb2 = (SeekBar)findViewById(R.id.seekBar2);
         SeekBar sb3 = (SeekBar)findViewById(R.id.seekBar3);
         TextView tv4 = (TextView) findViewById(R.id.textViewAMRCTotal);
-        tv4.setText("2100.00");
+        tv4.setText("1649");
         sb1.setMax(120);
         sb1.setProgress(30);
         sb1.setOnSeekBarChangeListener(this);
@@ -132,5 +134,7 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
     public void sendMessage(android.view.View view) {
         calculateActiveMetabolicRate();
     }
+
+
 }
 
